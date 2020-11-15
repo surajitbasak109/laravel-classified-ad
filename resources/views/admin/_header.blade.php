@@ -6,7 +6,7 @@
       </h1>
       <i class="fas fa-bars p-3 text-white" onclick="sidebarToggle();"></i>
     </div>
-    <div class="p-1 flex flex-row items-center">
+    <div class="p-1 flex flex-row items-center relative">
       <img
         onclick="profileToggle();"
         class="h-8 w-8 rounded-full hidden md:inline-block lg:inline-block"
@@ -18,11 +18,11 @@
         onclick="profileToggle();"
         class="p-2 no-underline text-white hidden md:block lg:block"
         >
-        Adam Wathan
+        {{ auth()->user()->name }}
       </a>
       <div
         id="ProfileDropDown"
-        class="rounded hidden shadow-md bg-white absolute pin pin-t mt-12 pin-r"
+        class="profile-dropdown rounded hidden shadow-md bg-white absolute top-0 right-0 mt-12"
         >
         <ul class="list-reset">
           <li>

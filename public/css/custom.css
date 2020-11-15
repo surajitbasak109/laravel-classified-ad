@@ -1,0 +1,26 @@
+.hero-area {
+  background-image: url("../images/hero-bg.jpg");
+  position: relative;
+  z-index: 1;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero-content {
+  padding: 270px 0 260px;
+}
+
+@media only screen and (max-width: 1399px) and (min-width: 1200px) {
+  .hero-content {
+    padding: 200px 0 180px;
+  }
+}
+
+.profile-dropdown {
+  width: 150%;
+}
+
+.sticky-footer {
+  left: 16.666667%;
+}

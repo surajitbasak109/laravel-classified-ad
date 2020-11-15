@@ -1,70 +1,63 @@
-var sidebar = document.getElementById("sidebar");
+(function() {
+    
+    "use strict";
+    
+    //===== Prealoder
 
-function sidebarToggle() {
-  if (sidebar.style.display === "none") {
-    sidebar.style.display = "block";
-  } else {
-    sidebar.style.display = "none";
-  }
-}
-
-var profileDropdown = document.getElementById("ProfileDropDown");
-
-function profileToggle() {
-  if (profileDropdown.style.display === "none") {
-    profileDropdown.style.display = "block";
-  } else {
-    profileDropdown.style.display = "none";
-  }
-}
-
-/**
- * ### Modals ###
- */
-
-function toggleModal(action, elem_trigger) {
-  elem_trigger.addEventListener("click", function() {
-    if (action == "add") {
-      let modal_id = this.dataset.modal;
-      document.getElementById(`${modal_id}`).classList.add("modal-is-open");
-    } else {
-      // Automaticlly get the opned modal ID
-      let modal_id = elem_trigger.closest(".modal-wrapper").getAttribute("id");
-      document.getElementById(`${modal_id}`).classList.remove("modal-is-open");
+    window.onload = function() {
+        window.setTimeout(fadeout, 500);
     }
-  });
-}
 
-// Check if there is modals on the page
-if (document.querySelector(".modal-wrapper")) {
-  // Open the modal
-  document.querySelectorAll(".modal-trigger").forEach((btn) => {
-    toggleModal("add", btn);
-  });
+    function fadeout() {
+        document.querySelector('.preloader').style.opacity = '0';
+        document.querySelector('.preloader').style.display = 'none';
+    }
 
-  // close the modal
-  document.querySelectorAll(".close-modal").forEach((btn) => {
-    toggleModal("remove", btn);
-  });
-}
+    
+    /*=====================================
+    Sticky
+    ======================================= */
+    window.onscroll = function () {
+        var header_navbar = document.getElementById("header_navbar");
+        var sticky = header_navbar.offsetTop;
+        var logo = document.querySelector('.navbar-brand img')
 
-function detectMob() {
-  const toMatch = [/Android/i, /webOs/i, /iPhone/i, /iPad/i, /iPod/i, /Blackberry/i, /Windows Phone/i];
+        if (window.pageYOffset > sticky) {
+            header_navbar.classList.add("sticky");
+            logo.src = 'assets/images/logo/logo-2.svg';
+        } else {
+            header_navbar.classList.remove("sticky");
+            logo.src = 'assets/images/logo/logo.svg';
+        }
 
-  return toMatch.some((toMatchItem) => navigator.userAgent.match(toMatchItem));
-}
 
-(function() {
-  profileDropdown.style.display = "none";
-  if (detectMob()) {
-    sidebar.style.display = "none";
-  }
+
+        // show or hide the back-top-top button
+        var backToTo = document.querySelector(".back-to-top");
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            backToTo.style.display = "block";
+        } else {
+            backToTo.style.display = "none";
+        }
+    };
+
+    // Get the navbar
+
+    //===== close navbar-collapse when a  clicked
+    let navbarToggler = document.querySelector(".navbar-toggler");
+    navbarToggler.addEventListener('click', function() {
+        navbarToggler.classList.toggle("active");
+    }) 
+
+
+    //WOW Scroll Spy
+    var wow = new WOW({
+        //disabled for mobile
+        mobile: false
+    });
+    wow.init();
+
+
+
+
 })();
-
-(function() {
-  profileDropdown.style.display = "none";
-  if (detectMob()) {
-    sidebar.style.display = "none";
-  }
-})();
-

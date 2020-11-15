@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -19,6 +19,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+    @toastr_css
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     @stack('css')
     @yield('header-end')
 </head>
@@ -26,6 +28,10 @@
     {{ $slot }}
 
     @yield('body-end')
+
+    @jquery
+    @toastr_js
+    @toastr_render
     @stack('js')
 </body>
 </html>

@@ -1,4 +1,5 @@
 <x-admin>
+  @section('title', 'Dashboard');
     <div class="container mx-auto">
         <div class="row justify-content-center">
             <div class="col-md-8">

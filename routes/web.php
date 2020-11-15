@@ -21,4 +21,17 @@ Route::get(
 
 Auth::routes();
 
-Route::get('/admin', 'HomeController@index')->name('home');
+Route::group(
+    [
+      'prefix' => 'admin',
+      'namespace' => 'admin',
+      'middleware' => 'auth',
+      'as' => 'admin.'
+    ],
+    function () {
+        Route::get('/', 'HomeController@index')->name('home');
+        Route::resource('/category', 'CategoryController');
+    }
+);
+
+Route::get('/post-ad', 'PostAdController@create')->name('post-ad');

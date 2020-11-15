@@ -5,12 +5,12 @@
     <!-- Screen -->
     <div class="min-h-screen flex flex-col">
       <!-- Header section starts here -->
-      @include('admin.header')
+      @include('admin._header')
       <!-- /Header -->
 
       <div class="flex flex-1">
         <!-- Sidebar -->
-        @include('admin.sidebar')
+        @include('admin._sidebar')
         <!-- /Sidebar -->
 
         <!-- Main -->
@@ -19,17 +19,10 @@
         </main>
         <!-- /Main -->
       </div>
-      <!-- Footer -->
-      <footer class="bg-gray-800 text-white p-2">
-        <div class="flex flex-1 mx-auto">
-          &copy; LaraTailwindCSS
-        </div>
-      </footer>
-      <!-- /Footer -->
     </div>
   </div>
 
   @push('js')
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/admin.js') }}"></script>
   @endpush
 </x-master>

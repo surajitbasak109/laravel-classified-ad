@@ -5,7 +5,7 @@
   <ul class="list-reset flex flex-col">
     <li class="w-full h-full py-3 px-2 border-b border-gray-300 bg-white">
       <a
-        href="{{ route('home') }}"
+        href="{{ route('admin.home') }}"
         class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline flex
         justify-between items-center"
       >
@@ -16,12 +16,12 @@
     </li>
     <li class="w-full h-full py-3 px-2 border-b border-gray-300">
       <a
-        href="/forms"
+        href="{{ route('admin.category.index') }}"
         class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline flex
         justify-between items-center"
       >
-        <i class="fab fa-wpforms mx-2"></i>
-        <span class="flex-1">Forms</span>
+        <i class="fas fa-list mx-2"></i>
+        <span class="flex-1">Category</span>
         <span><i class="fas fa-angle-right"></i></span>
       </a>
     </li>
