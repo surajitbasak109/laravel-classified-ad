@@ -30,7 +30,8 @@
     <link rel="stylesheet" href="{{ asset('css/nouislider.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-5.0.5-alpha.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/front-custom.css') }}">
     @stack('css')
     @yield('header-end')
 </head>

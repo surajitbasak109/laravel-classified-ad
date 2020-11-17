@@ -35,6 +35,7 @@ Route::group(
 );
 
 Route::get('/post-ad', 'PostAdController@create')->name('post-ad');
+Route::post('/store-ad', 'PostAdController@store')->name('public.store-ad');
 
 Route::group(
     [
@@ -44,5 +45,6 @@ Route::group(
     function () {
         Route::post('get_states', 'AjaxController@state');
         Route::post('get_cities', 'AjaxController@city');
+        Route::post('/post/upload_file', 'AjaxController@uploadDropzone')->name('post.dropzone_upload');
     }
 );
