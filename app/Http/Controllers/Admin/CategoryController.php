@@ -15,8 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::latest()->get();
-        return view('admin.category.index', compact('category'));
+        $categories = Category::latest()->paginate(5);
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -39,7 +39,7 @@ class CategoryController extends Controller
     {
         $attributes = $request->validate(
             [
-              'name' => ['required', 'string', 'between:3,255'],
+              'name' => ['required', 'unique:categories', 'string', 'between:3,255'],
               'description' => ['nullable', 'between:50,3000']
             ]
         );
@@ -59,7 +59,7 @@ class CategoryController extends Controller
      * @param  \App\cr $cr
      * @return \Illuminate\Http\Response
      */
-    public function show(cr $cr)
+    public function show(Category $category)
     {
         //
     }
@@ -70,9 +70,9 @@ class CategoryController extends Controller
      * @param  \App\cr $cr
      * @return \Illuminate\Http\Response
      */
-    public function edit(cr $cr)
+    public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -82,9 +82,21 @@ class CategoryController extends Controller
      * @param  \App\cr                  $cr
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cr $cr)
+    public function update(Request $request, Category $category)
     {
-        //
+        $attributes = $request->validate(
+            [
+              'name' => ['required', 'unique:categories,name,'.$category->name, 'string', 'between:3,255'],
+              'description' => ['nullable', 'between:50,3000']
+            ]
+        );
+
+        $category->name = $attributes['name'];
+        $category->description = $attributes['description'];
+        $category->save();
+
+        toastr()->success('Category updated.');
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -93,8 +105,10 @@ class CategoryController extends Controller
      * @param  \App\cr $cr
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cr $cr)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        toastr()->success('Category deleted.');
+        return redirect()->route('admin.category.index');
     }
 }

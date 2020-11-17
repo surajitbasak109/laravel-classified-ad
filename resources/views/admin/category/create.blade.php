@@ -20,6 +20,7 @@
           type="text"
           name="name"
           id="name"
+          value="{{ old('name') }}"
           placeholder="Enter category name"
           autocomplete="name"
           class="border-b-2 border-indigo-400 py-4 px-2 outline-none w-full"
@@ -45,7 +46,7 @@
               placeholder="Enter description"
               autocomplete="description"
               class="border-b-2 border-indigo-400 py-4 px-2 outline-none w-full"
-              ></textarea>
+              >{{ old('description') }}</textarea>
             @error('description')
             <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>
             @enderror

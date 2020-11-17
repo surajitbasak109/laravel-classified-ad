@@ -35,3 +35,14 @@ Route::group(
 );
 
 Route::get('/post-ad', 'PostAdController@create')->name('post-ad');
+
+Route::group(
+    [
+    'prefix' => 'ajax',
+    'as' => 'ajax.'
+    ],
+    function () {
+        Route::post('get_states', 'AjaxController@state');
+        Route::post('get_cities', 'AjaxController@city');
+    }
+);

@@ -1,14 +1,14 @@
 <footer class="footer-area">
   <div class="widget-wrapper">
     <div class="map-img">
-      <img src="assets/images/footer/map-img.svg" alt="">
+      <img src="{{ asset('images/footer/map-img.svg') }}" alt="">
     </div>
     <div class="container">
       <div class="row">
         <div class="col-xl-4 col-md-7">
           <div class="footer-widget about">
             <a href="index-2.html" class="d-inline-block mb-30">
-              <img src="assets/images/logo/logo.svg" alt="">
+              <img src="{{ asset('images/logo/logo.svg') }}" alt="">
             </a>
             <p class="text-white mb-25">Buy And Sell Everything From Used Cars To Mobile Phones And Computers, Search For Property, Jobs And More</p>
             <ul class="social">

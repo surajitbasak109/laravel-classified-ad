@@ -1,5 +1,5 @@
 <x-admin>
-  @section('title', 'Dashboard');
+  @section('title', 'Dashboard | '.config('app.name'))
     <div class="container mx-auto">
         <div class="row justify-content-center">
             <div class="col-md-8">

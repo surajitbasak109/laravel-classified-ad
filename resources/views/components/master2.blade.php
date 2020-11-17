@@ -38,6 +38,7 @@
     {{ $slot }}
 
     @yield('body-end')
+    @jquery
     <script src="{{ asset('js/bootstrap.bundle-5.0.0.alpha-min.js') }}"></script>
     <script src="{{ asset('js/tiny-slider.js') }}"></script>
     <script src="{{ asset('js/wow.min.js') }}"></script>
