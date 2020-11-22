@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\FontAwesomeIcon;
 use App\State;
 use Illuminate\Http\Request;
 
@@ -59,4 +60,18 @@ class AjaxController extends Controller
             }
         }
     }
+  
+  
+  
+  public function icons(Request $request)
+  {
+    if (!$request->term) {
+      return response()->json(['error' => 'No query given'], 400);
+    }
+    
+    $search = $request->term;
+    
+    $data = FontAwesomeIcon::limit(6)->where('name', 'LIKE', "%{$search}%")->get();
+    return response()->json($data);
+  }
 }

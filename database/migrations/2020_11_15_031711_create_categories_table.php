@@ -17,6 +17,8 @@ class CreateCategoriesTable extends Migration
             'categories', function (Blueprint $table) {
                 $table->id();
                 $table->string('name');
+                $table->foreignId('parent_id')->nullable();
+                $table->string('icon')->nullable();
                 $table->text('description')->nullable();
                 $table->timestamps();
             }

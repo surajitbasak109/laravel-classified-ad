@@ -4,6 +4,7 @@
 /storage/*.key
 /vendor
 /resources/views/classilist
+/public/post/
 .env
 .env.backup
 .phpunit.result.cache

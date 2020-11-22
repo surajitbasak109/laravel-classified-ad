@@ -1555,6 +1555,7 @@ textarea:focus {
   font-weight: 400;
   color: #333f57;
   transition: all 0.3s ease-out 0s;
+  font-size: 1.125rem;
 }
 .category-area {
   position: relative;

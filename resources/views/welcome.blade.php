@@ -6,86 +6,16 @@
   <section class="category-list-area pt-130">
     <div class="container">
       <div class="category-list-wrapper">
+        @foreach($categories as $category)
         <div class="category-list-item">
-          <a href="category.html">
+          <a href="{{ route('front.category', $category->name) }}">
             <div class="icon">
-              <i class="lni lni-car"></i>
+              <i class="fa fa-{{ $category->icon }}"></i>
             </div>
-            <h3>Vehicles</h3>
+            <h3>{{ $category->name }}</h3>
           </a>
         </div>
-        <div class="category-list-item">
-          <a href="category.html">
-            <div class="icon">
-              <i class="lni lni-display"></i>
-            </div>
-            <h3>Electronics</h3>
-          </a>
-        </div>
-        <div class="category-list-item">
-          <a href="category.html">
-            <div class="icon">
-              <i class="lni lni-mobile"></i>
-            </div>
-            <h3>Mobiles</h3>
-          </a>
-        </div>
-        <div class="category-list-item">
-          <a href="category.html">
-            <div class="icon">
-              <i class="lni lni-leaf"></i>
-            </div>
-            <h3>Furnitures</h3>
-          </a>
-        </div>
-        <div class="category-list-item">
-          <a href="category.html">
-            <div class="icon">
-              <i class="lni lni-tshirt"></i>
-            </div>
-            <h3>Fashion</h3>
-          </a>
-        </div>
-        <div class="category-list-item">
-          <a href="category.html">
-            <div class="icon">
-              <i class="lni lni-briefcase"></i>
-            </div>
-            <h3>Jobs</h3>
-          </a>
-        </div>
-        <div class="category-list-item">
-          <a href="category.html">
-            <div class="icon">
-              <i class="lni lni-apartment"></i>
-            </div>
-            <h3>Real Estates</h3>
-          </a>
-        </div>
-        <div class="category-list-item">
-          <a href="category.html">
-            <div class="icon">
-              <i class="lni lni-book"></i>
-            </div>
-            <h3>Education</h3>
-          </a>
-        </div>
-        <div class="category-list-item">
-          <a href="category.html">
-            <div class="icon">
-              <i class="lni lni-users"></i>
-            </div>
-            <h3>Matrimony</h3>
-          </a>
-        </div>
-        <div class="category-list-item">
-          <a href="category.html">
-            <div class="icon">
-              <i class="lni lni-heart"></i>
-            </div>
-            <h3>Pets</h3>
-          </a>
-        </div>
+        @endforeach
       </div>
     </div>
   </section>
